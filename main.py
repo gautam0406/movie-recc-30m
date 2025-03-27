@@ -54,10 +54,9 @@ def get_top_movies_from_tmdb():
         return []
 
 
-
 @app.get("/")
 def index_page(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request}) 
 
 @app.get("/dataset_info")
 def description_page(request: Request):

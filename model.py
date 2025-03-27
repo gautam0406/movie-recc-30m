@@ -1,6 +1,7 @@
 import boto3
 from dotenv import load_dotenv
 import os
+import pickle
 
 # Load environment variables
 load_dotenv()
@@ -10,6 +11,7 @@ AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 
+output_path = "models/recommendation_model.pkl"
 
 def upload_to_s3(file_path, bucket_name, s3_key):
     """Upload a file to S3"""
