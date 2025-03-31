@@ -34,12 +34,16 @@
   <header class="w3-container w3-center" style="padding:128px 16px; background: linear-gradient(to right, #0875ce, #43d1f8);">
 
   <h1 class="w3-margin w3-jumbo"><main>RECOMMENDATION SYSTEM</main></h1>
-  <h5>(This is a Content Based recommendation system created on tmdb_5000 dataset)</h5>
-  <form method="post">
-<input type="text" placeholder="Enter a movie name.." name="movie_title" class="input"><br><br>
-    <button  role="button" type="submit" class="button-78">Recommend</button>
-
-</form>
+  <form method="post" action="/recommend">
+    <input type="text" placeholder="Enter a movie name.." name="movie_title" class="input"><br><br>
+    
+    <!-- Collaborative Filtering Button -->
+    <button role="button" type="submit" class="button-78" name="filter_type" value="cf"><b>COLLABORATIVE FILTERING</b></button>
+    
+    <!-- Content-Based Filtering Button -->
+    <button role="button" type="submit" class="button-78" name="filter_type" value="cbf"><b>CONTENT BASED FILTERING</b></button>
+  </form>
+  
 </header>
 
 <!-- First Grid -->

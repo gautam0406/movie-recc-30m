@@ -1,7 +1,8 @@
 from fastapi import FastAPI,Request, Form, HTTPException
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from recommendation import get_recommendations
+from recommendation import load_selected_model,get_recommendations_CF,get_recommendations_CBF
+# from recommendation import get_recommendations
 import requests
 import os
 from dotenv import load_dotenv
@@ -73,26 +74,63 @@ def recommend_page(request: Request):
         "top_movies": top_movies
     })
 
-@app.post("/recommend")
-def get_movie_recommendations(request: Request, movie_title: str = Form(...)):
+# @app.post("/recommend")
+# def get_movie_recommendations(request: Request, movie_title: str = Form(...), filter_type: str=Form(...)):
 
+#     try:
+#         # Fetch recommendations for the entered movie
+#         recommendations = get_recommendations(movie_title)
+
+#         # Fetch top movies from TMDb API
+#         top_movies = get_top_movies_from_tmdb()
+
+#         return templates.TemplateResponse("recommend.html", {
+#             "request": request, 
+#             "recommendations": recommendations, 
+#             "movie_title": movie_title,
+#             "top_movies": top_movies
+#         })
+#     except HTTPException as e:
+#         return templates.TemplateResponse("recommend.html", {
+#             "request": request, 
+#             "error": e.detail, 
+#             "recommendations": None,
+#             "top_movies": get_top_movies_from_tmdb()
+#         })
+
+
+@app.post("/recommend")
+def get_movie_recommendations(
+    request: Request,
+    movie_title: str = Form(...),
+    filter_type: str = Form(...),  # Added filter type from the form
+):
     try:
-        # Fetch recommendations for the entered movie
-        recommendations = get_recommendations(movie_title)
+        # Load the selected model dynamically based on the filter type
+        selected_model = load_selected_model(filter_type)
+
+        # Get recommendations using the selected model
+        if filter_type == "cf":
+            recommendations = get_recommendations_CF(movie_title, selected_model)
+        elif filter_type == "cbf":
+            recommendations = get_recommendations_CBF(movie_title, selected_model)
+        else:
+            raise HTTPException(status_code=400, detail="Invalid filter type")
 
         # Fetch top movies from TMDb API
         top_movies = get_top_movies_from_tmdb()
 
         return templates.TemplateResponse("recommend.html", {
-            "request": request, 
-            "recommendations": recommendations, 
+            "request": request,
+            "recommendations": recommendations,
             "movie_title": movie_title,
             "top_movies": top_movies
         })
+
     except HTTPException as e:
         return templates.TemplateResponse("recommend.html", {
-            "request": request, 
-            "error": e.detail, 
+            "request": request,
+            "error": e.detail,
             "recommendations": None,
             "top_movies": get_top_movies_from_tmdb()
         })
