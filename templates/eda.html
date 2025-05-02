@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>dataset_info.html</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="\static\style.css">
+
+    <style>
+        .box {
+            text-transform: uppercase;
+            color: #0000;
+            font-family: sans-serif;
+            font-size: 50px;
+            font-weight: bolder;
+            background:
+                repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 50% 0/2500px 2500px,
+                repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 50% 50%/2500px 2500px;
+            background-blend-mode: difference;
+            mix-blend-mode: lighten;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        html {
+            background: #fff;
+        }
+
+        .bordered-image {
+            border: 3px solid #333;
+            /* Border width, style, and color */
+            border-radius: 5px;
+            /* Optional: Rounded corners */
+            padding: 5px;
+            /* Optional: Space between image and border */
+        }
+
+        .glow-para {
+            border: 3px solid #4caf50;
+            /* Border color */
+            padding: 10px;
+            box-shadow: 0 0 10px #4caf50;
+            /* Glow effect */
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top ">
+        <div class="w3-bar w3-gray w3-card w3-left-align w3-large ">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+            <a href="#eda" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">EDA</a>
+            <a href="#graphical" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Graph</a>
+            <a href="#WR" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Popularity</a>
+        </div>
+
+    </div>
+
+    <!-- Header -->
+    <header class="w3-container w3-center"
+        style="padding:60px 50px; background: linear-gradient(to right, #0875ce, #43d1f8);">
+        <div class="box">
+            <h1 class="w3-margin w3-jumbo box">EXPLORATORY DATA ANALYSIS</h1>
+        </div>
+        <h6 style="font-family: Fantasy;">Exploratory Data Analysis (EDA) is the process of analyzing datasets to
+            summarize
+            their main characteristics, often using visualizations and statistical techniques.<br> It helps identify
+            patterns,
+            trends, and anomalies to gain insights before applying machine learning models.</h6>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-padding-small  w3-container" id="eda">
+        <div class="w3-content">
+            <h2> 1. Dataset information</h2>
+            <ol>
+
+                <h5><li>
+                    Shape of Datasets</h5>
+                    Movies Dataset: 85919 rows<br> 
+                    Ratings Dataset: 33832162 rows
+                </li>
+                <h5><li>
+                    NA Values in Dataset</h5>
+                    Movies Dataset:
+                    <table class="w3-table w3-bordered">
+                        <thead>
+                          <tr>
+                            <th>Column</th>
+                            <th>NA_Count</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>movieId</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>title</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>genres</td>
+                            <td>0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    
+                      Ratings Dataset:
+                      <table class="w3-table w3-bordered">
+                        <thead>
+                          <tr>
+                            <th>Column</th>
+                            <th>NA_Count</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>userId</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>movieId</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>rating</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>timestamp</td>
+                            <td>0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      
+                </li>
+
+                <h5><li>
+                   Dropping and Formatting Columns</h5>
+                    <ul>
+                        <li>Dropping The Timestamp column from Ratings.csv as it is not important</li>
+                        <img src="\static\images\timestamp_column.png" class="bordered-image"><br><br>
+                        <li>Formatting "title" column in movies.csv to remove the year from each movie and storing it in
+                            a
+                            seperate column:<br>
+                            Before: <img src="\static\images\year_before.png" class="bordered-image"><br> <br>
+                            After: <img src="\static\images\year_after.png" class="bordered-image">
+                        </li>
+                    </ul>
+                    </ul>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Second Grid -->
+    <div class="w3-padding-small w3-light-grey w3-container" id="graphical">
+        <div class="w3-content">
+            <h2>2. GRAPHICAL ANALYSIS</h2>
+            <ol>
+                <h5>
+                    <li>Plotting a graph of numbe of movies per year to analyse the distribution of which year has most
+                        and which year has least no. of movies.
+                </h5>
+                <img src="\static\images\movies_year.png" class="bordered-image"><br>
+                <div class="glow-para" style="margin-top: 10px; margin-bottom: 10px;">
+                    <u>
+                        <h5>ANALYSIS:</h5>
+                    </u>
+                    <p>
+                        We can clearly see that from year 1880 - 1990 very less number of movies were created
+                        as
+                        compared to 1990 - 223. And majority of users watch recently produced movies so, removing old
+                        movies
+                        would filter out our dataset to remove unpopular or less known movies.<br>
+                        After Removing the movies from year 1880 to 1990 no. of movies left = 58740 and merging movies
+                        and ratings dataset we are left with 25843229 rows in total</p><br>
+                </div>
+                <img src="\static\images\movies_year_after.png" class="bordered-image"><br><br>
+
+
+                </li>
+
+                <h5>
+                    <li>
+                        Plotting a movie rating count distribution on a log scale
+                </h5>
+                <img src="\static\images\movie_rating_log.png" class="bordered-image">
+                <div class="glow-para" style="margin-top: 10px; margin-bottom: 10px;">
+                    <u>
+                        <h5>ANALYSIS:</h5>
+                    </u>
+                    <p>
+                    <ul>
+                        <li><b>Highly Skewed Distribution:</b>
+                            The histogram shows a right-skewed distribution, where most movies have a very low number of
+                            ratings.
+                            A small number of movies have an extremely high number of ratings, while the majority of
+                            movies have less than 1,000 ratings.<br></li>
+
+                        <li> <b>Popular Movies Dominate:</b>
+                            A few movies have ratings exceeding 40,000 to 100,000, indicating these are highly popular
+                            movies with mass viewership.
+                            However, the number of such movies is very small.<br></li>
+
+                        <li> <b>Long Tail of Less Popular Movies:</b>
+                            There is a long tail of movies with very few ratings.
+                            Most movies in the dataset received very few reviews, suggesting that a large number of
+                            movies are less known or niche.<br></li>
+
+                        <li> <b>Logarithmic Scale Insight:</b>
+                            The logarithmic scale on the y-axis indicates that the count of movies reduces drastically
+                            as the rating count increases.
+                            This transformation helps in visualizing the wide range of counts.</li>
+                        </p><br>
+                    </ul>
+                </div>
+                </li>
+
+
+                <h5>
+                    <li>
+                        Plotting a Distribution of ratings per user using a log scale
+                </h5>
+                <img src="\static\images\user_rating_log.png" class="bordered-image">
+                <div class="glow-para" style="margin-top: 10px; margin-bottom: 10px;">
+                    <u>
+                        <h5>ANALYSIS:</h5>
+                    </u>
+                    <p>
+                    <ul>
+                        <li><b>Highly Skewed Distribution:</b>
+                            The histogram exhibits a right-skewed distribution, where most users have provided a small
+                            number of ratings.
+                            Only a few users have given a large number of ratings, while the majority of users have
+                            rated fewer than 1,000 movies.<br></li>
+
+                        <li> <b>Logarithmic Scale Insight:</b>
+                            The logarithmic scale on the y-axis highlights the dramatic decrease in the number of users
+                            as the number of ratings increases.
+                            A vast majority of users have contributed fewer than 500 ratings, but some power users have
+                            provided thousands of ratings.<br></li>
+
+                        <li> <b>Long Tail of Low Activity Users:</b>
+                            There is a long tail of users who rated very few movies, likely indicating casual or
+                            infrequent users.
+                            A few users have rated between 5,000 to 20,000 movies, but they represent an extremely small
+                            proportion of the total user base.<br></li>
+
+                        <li> <b>Power Users:</b>
+                            The presence of a handful of power users (who have rated over 5,000+ movies) suggests that
+                            these users significantly influence the overall rating distribution.</li>
+
+                        <li> <b>User Engagement Imbalance:</b>
+                            A large proportion of users have provided very few ratings, indicating that most users
+                            contribute minimally to the dataset.</li>
+                        </p><br>
+                    </ul>
+                </div>
+                </li>
+
+            </ol>
+        </div>
+    </div>
+
+
+    <!-- Third Grid -->
+    <div class="w3-padding-small  w3-container">
+        <div class="w3-content">
+            <h2 id="WR"> 3. Weighted Rating (Popularity)</h2>
+            <ul>A Weighted Rating (WR) is a method used to rate movies or items by considering both the average rating and
+            the number of votes received. This approach helps ensure that movies with a small number of ratings do not
+            rank higher than movies with a larger number of ratings.
+            <img src="\static\images\wr.png" class="bordered-image"><br>
+            Where:<br>
+            v = Number of votes for the movie.<br>
+            R = Average rating of the movie.<br>
+            m = Minimum number of votes required to be considered.<br>
+            C = Mean rating across all movies.<br>
+
+            Now We will create a seperate dataframe for weighted rating using this formula and ratings.csv file
+            <!-- {{ popularity | safe }} -->
+            <table class="w3-table w3-bordered">
+                <thead>
+                  <tr>
+                    <th>movieId</th>
+                    <th>weighted_rating</th>
+                    <th>rating_count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>154550</td>
+                    <td>4.414711</td>
+                    <td>2948</td>
+                  </tr>
+                  <tr>
+                    <td>1036</td>
+                    <td>4.403775</td>
+                    <td>102929</td>
+                  </tr>
+                  <tr>
+                    <td>115715</td>
+                    <td>4.402743</td>
+                    <td>1956</td>
+                  </tr>
+                  <tr>
+                    <td>58589</td>
+                    <td>4.396097</td>
+                    <td>2811</td>
+                  </tr>
+                  <tr>
+                    <td>2731</td>
+                    <td>4.315863</td>
+                    <td>66440</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+
+            Now we will plot a distribution of Weighted Ratings.
+            <img src="\static\images\wr_graph.png" class="bordered-image"><br>
+
+            <div class="glow-para" style="margin-top: 10px; margin-bottom: 10px;">
+                <u>
+                    <h5>ANALYSIS:</h5>
+                </u>
+                <p>
+                <ul>
+                    <li><b>Normal Distribution with Slight Skew:</b>
+                        The histogram shows that most movies have a weighted rating between 3.4 and 3.6, indicating that
+                        the majority of movies are rated around this range.
+                        The distribution is slightly skewed to the left, suggesting that fewer movies have ratings
+                        significantly lower than 3.4.<br></li>
+
+                    <li> <b>High Concentration Around 3.5:</b>
+                        A large number of movies have a weighted rating concentrated around 3.5, with the peak reaching
+                        over 40,000 movies.
+                        This suggests that the majority of movies in the dataset are rated moderately well, and very few
+                        movies deviate significantly from this average.<br></li>
+                    </p><br>
+                </ul>
+            </div>
+
+        </ul>
+        </div>
+    </div>
+
+
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <a href="/eda">
+        <button class="button-78">Exploratory Data Analysis</button>
+        </a>
+    </div>
+
+
+</body>
+
+</html>
