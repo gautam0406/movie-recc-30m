@@ -99,13 +99,16 @@ Visit: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 All required packages are listed in `requirements.txt`.
 
 ## 📷 Demo
-![1-Home](https://github.com/user-attachments/assets/0dcbb22d-c312-4167-9b37-5fab4215b592)
-![2-Recommend](https://github.com/user-attachments/assets/32f0e79d-a10a-4d31-82b3-bc7b7f18204e)
-![3-Collaborative Filtering](https://github.com/user-attachments/assets/bf5570d9-4679-406a-a795-f327ad168941)
-![4-Content Based Filtering](https://github.com/user-attachments/assets/28474377-c17d-48e1-b6ee-18dc9f69e375)
-![5-About Dataset](https://github.com/user-attachments/assets/1cca05d2-768c-4abe-88db-fbc97597b59e)
-![6-EDA](https://github.com/user-attachments/assets/3fb6eeff-3b1b-414a-9998-342f18669ce5)
+![1-Home](outputs\1-Home.png)
+![2-Recommend](outputs\2-Recommend.png)
+![3-Collaborative Filtering](outputs\3-Collaborative Filtering.png)
+![4-Content Based Filtering](outputs\4-Content Based Filtering.png)
+![5-About Dataset](outputs\5-About Dataset.png)
+![6-EDA](outputs\6-EDA.png)
 
 ## 📄 Deployement
 This app is deployed using render service.
 Visit : https://movie-recc-30m.onrender.com
+
+After visiting the URL , you may be encountered with the following screen. Please wait for a while as render restarts the service
+![image](https://github.com/user-attachments/assets/9a1ef6af-9d7b-43ca-8f6a-841b542a65e5)
