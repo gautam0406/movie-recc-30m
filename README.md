@@ -107,8 +107,10 @@ All required packages are listed in `requirements.txt`.
 ![6-EDA](outputs/6-EDA.png)
 
 ## 📄 Deployement
-This app is deployed using render service.
+-This app is deployed using render service.
 Visit : https://movie-recc-30m.onrender.com
 
-After visiting the URL , you may be encountered with the following screen. Please wait for a while as render restarts the service
+-After visiting the URL , you may be encountered with the following screen. Please wait for a while as render restarts the service
 ![image](outputs/render.png)
+
+-After selecting a filter type and entering a movie, the app may take a little longer to load the first time as it downloads the recommendation model from AWS cloud storage.
