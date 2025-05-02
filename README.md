@@ -102,7 +102,7 @@ All required packages are listed in `requirements.txt`.
 ![1-Home](outputs/1-Home.png)
 ![2-Recommend](outputs/2-Recommend.png)
 ![3-Collaborative Filtering](outputs/3-Collaborative.png)
-![4-Content Based Filtering](outputs/4-Contentg.png)
+![4-Content Based Filtering](outputs/4-Content.png)
 ![5-About Dataset](outputs/5-About.png)
 ![6-EDA](outputs/6-EDA.png)
 
@@ -111,4 +111,4 @@ This app is deployed using render service.
 Visit : https://movie-recc-30m.onrender.com
 
 After visiting the URL , you may be encountered with the following screen. Please wait for a while as render restarts the service
-![image](output/render.png)
+![image](outputs/render.png)
